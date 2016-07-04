@@ -26,7 +26,7 @@ def main():
             rfid_string = '_'.join([str(id_val) for id_val in response])
 
             keyboard = PyKeyboard()
-            keyboard.type_string('RFID_ID_'+rfid_string)
+            keyboard.type_string('<U>RFID_ID_'+rfid_string)
         except:
             continue
 
