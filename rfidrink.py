@@ -27,7 +27,7 @@ def main():
 
             keyboard = PyKeyboard()
             keyboard.press_key(keyboard.escape_key, n=3, interval=0.05)
-            keyboard.type_string('<U>RFID_ID_'rfid_string)
+            keyboard.type_string('<U>RFID_ID_'+rfid_string)
         except:
             continue
 
