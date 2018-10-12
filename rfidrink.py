@@ -12,6 +12,10 @@ from smartcard.CardType import AnyCardType
 from smartcard.CardRequest import CardRequest
 
 def get_card_id():
+    """ Read the RFID-Card's id
+    :return: RFID-Card ID
+    :rtype str:
+    """
     # define the apdus used in this script
     apdu = [0xFF, 0xCA, 0x00, 0x00, 0x00]
 
@@ -40,11 +44,12 @@ async def card(card_id):
 
 if __name__ == '__main__':
     app = socketio.Middleware(card_server, app)
-    eventlet.wsgi.server(eventlet.listen(('',24421)),app)
+    eventlet.wsgi.server(eventlet.listen(('', 23421)),app)
 
     while True:
         try:
             rfid_string = get_card_id()
-            if rfid_string: card_server.emit(card(rfid_string))
+            if rfid_string:
+                card_server.emit(data=rfid_string)
         except:
             continue
