@@ -3,7 +3,11 @@
 # Organisation: Entropia e.V.
 # Licence: Public Domain
 
-from pykeyboard import PyKeyboard
+import socketio
+from flask import Flask
+import eventlet
+import eventlet.wsgi
+
 from smartcard.CardType import AnyCardType
 from smartcard.CardRequest import CardRequest
 
